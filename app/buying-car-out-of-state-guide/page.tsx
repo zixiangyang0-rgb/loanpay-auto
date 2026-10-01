@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Buying a Car Out of State: Taxes, Tags & Transport | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Budget registration deadlines (often 10–30 days) plus title, plate, and inspection fees.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "Do I pay sales tax in the buying state or my state?",
+    "answer": "Almost always your registration state, with credit for tax legally paid elsewhere. Confirm with your DMV before purchase — rules have state-specific exceptions."
+  },
+  {
+    "question": "How do I inspect a car in another state?",
+    "answer": "Hire a mobile inspector or local independent shop for a full PPI ($150–$300). Never buy sight-unseen; refuse any seller who blocks independent inspection."
+  },
+  {
+    "question": "How much does car shipping cost?",
+    "answer": "Roughly $700–$1,100 open carrier for 1,000 miles; $1,200–$1,800 enclosed. Flying in and driving home often costs under $400 all-in."
+  },
+  {
+    "question": "Can I register an out-of-state car with a lien?",
+    "answer": "Yes — lenders handle interstate titles routinely. Coordinate lienholder, seller, and your DMV so the title transfers directly without gaps."
+  }
+];
+
 export default function OutOfStatePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Buying a Car Out of State: Taxes, Tags & Transport | LoanPay Auto" description="Buy from another state safely: sales-tax rules, temp tags, remote inspections, shipping costs, and a $2,800-savings worked example." slug="buying-car-out-of-state-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Buy smart &middot; remote purchases
@@ -34,8 +56,9 @@ export default function OutOfStatePage() {
           title, transport, and trust complications — all solvable with the sequence in this
           guide.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -181,24 +204,25 @@ export default function OutOfStatePage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Do I pay sales tax in the buying state or my state?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Do I pay sales tax in the buying state or my state?</summary>
               <p className="mt-1">Almost always your registration state, with credit for tax legally paid elsewhere. Confirm with your DMV before purchase — rules have state-specific exceptions.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How do I inspect a car in another state?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How do I inspect a car in another state?</summary>
               <p className="mt-1">Hire a mobile inspector or local independent shop for a full PPI ($150–$300). Never buy sight-unseen; refuse any seller who blocks independent inspection.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How much does car shipping cost?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How much does car shipping cost?</summary>
               <p className="mt-1">Roughly $700–$1,100 open carrier for 1,000 miles; $1,200–$1,800 enclosed. Flying in and driving home often costs under $400 all-in.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I register an out-of-state car with a lien?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I register an out-of-state car with a lien?</summary>
               <p className="mt-1">Yes — lenders handle interstate titles routinely. Coordinate lienholder, seller, and your DMV so the title transfers directly without gaps.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -227,6 +251,7 @@ export default function OutOfStatePage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

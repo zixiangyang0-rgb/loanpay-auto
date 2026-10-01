@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BuyVsLeaseEstimator from "./estimator";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Buy vs. Lease Guide: Full Cost Comparison With Examples | LoanPay Auto",
@@ -20,9 +22,33 @@ const CHECKLIST = [
   "Match the choice to your holding period: keep cars 6+ years? Buying almost always wins.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "Is it cheaper to buy or lease a car?",
+    "answer": "Leasing is usually cheaper month to month, but buying is usually cheaper per year of ownership once equity and payment-free years count — especially if you keep cars six or more years."
+  },
+  {
+    "question": "How many miles can I drive on a lease?",
+    "answer": "Most leases allow 10,000–12,000 miles per year (15,000-mile terms cost more). Excess miles run $0.15–$0.30 each, so check your real driving history before signing."
+  },
+  {
+    "question": "Can I negotiate a lease price?",
+    "answer": "Yes — negotiate the capitalized cost (selling price) exactly as you would a purchase price, then verify the money factor converts to a fair APR (multiply by 2,400) and matches your credit tier."
+  },
+  {
+    "question": "What happens at the end of a car lease?",
+    "answer": "You can return the car (paying disposition and any wear or mileage bills), buy it at the preset residual value, extend the lease, or trade it toward a new vehicle."
+  },
+  {
+    "question": "Does leasing hurt your credit less than buying?",
+    "answer": "Both appear as installment accounts and affect your score similarly. Leases sometimes show lower balances, but on-time payments help and missed payments hurt either way."
+  }
+];
+
 export default function BuyVsLeasePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Buy vs. Lease Guide: Full Cost Comparison With Examples | LoanPay Auto" description="Should you buy or lease your next car? Compare total costs, mileage limits, equity, and flexibility with a $32,000 worked example and interactive numbers." slug="buy-vs-lease-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Buy smart &middot; financing basics
@@ -36,8 +62,9 @@ export default function BuyVsLeasePage() {
           money really goes, and helps you match the choice to your mileage, budget, and how long
           you actually keep cars.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -182,28 +209,29 @@ export default function BuyVsLeasePage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Is it cheaper to buy or lease a car?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Is it cheaper to buy or lease a car?</summary>
               <p className="mt-1">Leasing is usually cheaper month to month, but buying is usually cheaper per year of ownership once equity and payment-free years count — especially if you keep cars six or more years.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How many miles can I drive on a lease?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How many miles can I drive on a lease?</summary>
               <p className="mt-1">Most leases allow 10,000–12,000 miles per year (15,000-mile terms cost more). Excess miles run $0.15–$0.30 each, so check your real driving history before signing.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I negotiate a lease price?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I negotiate a lease price?</summary>
               <p className="mt-1">Yes — negotiate the capitalized cost (selling price) exactly as you would a purchase price, then verify the money factor converts to a fair APR (multiply by 2,400) and matches your credit tier.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What happens at the end of a car lease?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What happens at the end of a car lease?</summary>
               <p className="mt-1">You can return the car (paying disposition and any wear or mileage bills), buy it at the preset residual value, extend the lease, or trade it toward a new vehicle.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Does leasing hurt your credit less than buying?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Does leasing hurt your credit less than buying?</summary>
               <p className="mt-1">Both appear as installment accounts and affect your score similarly. Leases sometimes show lower balances, but on-time payments help and missed payments hurt either way.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -236,6 +264,7 @@ export default function BuyVsLeasePage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

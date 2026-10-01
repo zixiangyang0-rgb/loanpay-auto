@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Used Car Buying Checklist: 40-Point Inspection Flow | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Compare asking price against at least two pricing sources for the same trim, mileage, and region.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "How much does a pre-purchase inspection cost?",
+    "answer": "Typically $150–$250 at an independent shop for a lift inspection, scan, and written report. It is the highest-value spending in used-car buying."
+  },
+  {
+    "question": "What mileage is too high for a used car?",
+    "answer": "Condition and maintenance history matter more than the odometer. A documented 120,000-mile car with new timing components can outlast a neglected 70,000-mile one — budget per-mile wear either way."
+  },
+  {
+    "question": "Should I buy a used car with an accident history?",
+    "answer": "Minor cosmetic claims with professional repair can be fine at a 10–15% discount. Walk away from frame damage, airbag deployments, or flood records unless the price reflects project-car risk."
+  },
+  {
+    "question": "Dealer or private party for a used car?",
+    "answer": "Dealers charge more but offer reconditioning, possible warranties, and financing convenience. Private sellers run cheaper but sell strictly as-is — the PPI matters even more there."
+  }
+];
+
 export default function UsedCarChecklistPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Used Car Buying Checklist: 40-Point Inspection Flow | LoanPay Auto" description="Buy a used car with confidence: history reports, test-drive tests, pre-purchase inspection, title checks, pricing, and a $18,000 worked example." slug="used-car-buying-checklist" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Buy smart &middot; inspections
@@ -34,8 +56,9 @@ export default function UsedCarChecklistPage() {
           this six-stage flow from budget to paperwork: history screening, physical inspection,
           test drive, professional inspection, price analysis, and title verification.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -187,24 +210,25 @@ export default function UsedCarChecklistPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How much does a pre-purchase inspection cost?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How much does a pre-purchase inspection cost?</summary>
               <p className="mt-1">Typically $150–$250 at an independent shop for a lift inspection, scan, and written report. It is the highest-value spending in used-car buying.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What mileage is too high for a used car?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What mileage is too high for a used car?</summary>
               <p className="mt-1">Condition and maintenance history matter more than the odometer. A documented 120,000-mile car with new timing components can outlast a neglected 70,000-mile one — budget per-mile wear either way.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Should I buy a used car with an accident history?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Should I buy a used car with an accident history?</summary>
               <p className="mt-1">Minor cosmetic claims with professional repair can be fine at a 10–15% discount. Walk away from frame damage, airbag deployments, or flood records unless the price reflects project-car risk.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Dealer or private party for a used car?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Dealer or private party for a used car?</summary>
               <p className="mt-1">Dealers charge more but offer reconditioning, possible warranties, and financing convenience. Private sellers run cheaper but sell strictly as-is — the PPI matters even more there.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -237,6 +261,7 @@ export default function UsedCarChecklistPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

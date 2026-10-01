@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
+import ConsentBanner from "./lib/consent";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -71,6 +72,25 @@ function Footer() {
         &copy; {new Date().getFullYear()} auto.loanpaylogic.com. General education only, not
         financial advice.
       </p>
+      <p className="mt-2 text-xs">
+        Contact:{" "}
+        <a href="mailto:support@loanpaylogic.com" className="underline underline-offset-2">
+          support@loanpaylogic.com
+        </a>{" "}
+        &middot;{" "}
+        <a
+          href="https://adssettings.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2"
+        >
+          Google Ads Settings
+        </a>{" "}
+        &middot;{" "}
+        <Link href="/privacy-policy" className="underline underline-offset-2">
+          Ad &amp; cookie choices
+        </Link>
+      </p>
     </footer>
   );
 }
@@ -86,9 +106,13 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <ConsentBanner />
+        {/* Google Funding Choices (CMP): configure your message at https://fundingchoices.google.com
+            and paste the Funding Choices tag here once approved. The ConsentBanner above stores
+            the visitor choice and sets npa=1 (requestNonPersonalizedAds) on decline. */}
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4906207495792820"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           crossOrigin="anonymous"
         />
       </body>

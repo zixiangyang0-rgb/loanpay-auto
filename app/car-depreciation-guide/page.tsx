@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Car Depreciation Guide: Curves, Rates & How to Slow It | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Time sales for spring demand peaks and before major redesigns or mileage thresholds.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "How much does a new car depreciate in the first year?",
+    "answer": "Roughly 20% on average — the steepest single year. Luxury and large sedans can exceed 25%; the strongest hybrids and trucks may lose only 12–15%."
+  },
+  {
+    "question": "Do electric cars depreciate faster?",
+    "answer": "Historically yes, due to tech change and price cuts — though tax-credit expirations and battery improvements keep shifting the pattern. See our EV cost comparison for 2026 context."
+  },
+  {
+    "question": "Does mileage or age affect value more?",
+    "answer": "Both, but mileage dominates early (per-mile deductions plus threshold cliffs like 100k), while age dominates late as condition and tech obsolescence take over."
+  },
+  {
+    "question": "When is the best time to sell to avoid depreciation?",
+    "answer": "Before major thresholds: under 100,000 miles, before a redesign lands, ahead of warranty expiry, and during spring demand peaks — with full records in hand."
+  }
+];
+
 export default function DepreciationPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Car Depreciation Guide: Curves, Rates & How to Slow It | LoanPay Auto" description="How fast cars lose value: year-by-year depreciation curves, which factors accelerate it, and five strategies that protect resale — with a $35,000 example." slug="car-depreciation-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Ownership &middot; resale value
@@ -34,8 +56,9 @@ export default function DepreciationPage() {
           insurance, or repairs. Understand the curve, what bends it, and how to keep thousands
           more of your car&apos;s value when you sell.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -196,24 +219,25 @@ export default function DepreciationPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How much does a new car depreciate in the first year?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How much does a new car depreciate in the first year?</summary>
               <p className="mt-1">Roughly 20% on average — the steepest single year. Luxury and large sedans can exceed 25%; the strongest hybrids and trucks may lose only 12–15%.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Do electric cars depreciate faster?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Do electric cars depreciate faster?</summary>
               <p className="mt-1">Historically yes, due to tech change and price cuts — though tax-credit expirations and battery improvements keep shifting the pattern. See our EV cost comparison for 2026 context.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Does mileage or age affect value more?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Does mileage or age affect value more?</summary>
               <p className="mt-1">Both, but mileage dominates early (per-mile deductions plus threshold cliffs like 100k), while age dominates late as condition and tech obsolescence take over.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">When is the best time to sell to avoid depreciation?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">When is the best time to sell to avoid depreciation?</summary>
               <p className="mt-1">Before major thresholds: under 100,000 miles, before a redesign lands, ahead of warranty expiry, and during spring demand peaks — with full records in hand.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -242,6 +266,7 @@ export default function DepreciationPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Upside-Down Car Loan Guide: Causes, Fixes & Rollover Danger | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "If selling, compare private sale (highest value) vs. trade (tax credit) on net proceeds.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "What does upside down on a car loan mean?",
+    "answer": "You owe more than the car's market value — negative equity. Common with small down payments, long terms, high rates, or rolled-over trade shortfalls."
+  },
+  {
+    "question": "Can I trade in a car I owe more on than it is worth?",
+    "answer": "Yes, but the shortfall is added to the new loan (plus interest), deepening the hole. Paying down principal or selling privately with cash for the gap is usually cheaper."
+  },
+  {
+    "question": "How do I get out of an upside-down loan fastest?",
+    "answer": "Extra principal payments plus keeping the car past the depreciation curve's steep part. Refinancing to a lower rate at the same term helps if loan-to-value allows."
+  },
+  {
+    "question": "Does gap insurance help if I am upside down?",
+    "answer": "Only after a total loss — it pays the lender the shortfall. It does not reduce the balance day to day. Buy it as protection while you pay the gap down."
+  }
+];
+
 export default function UpsideDownPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Upside-Down Car Loan Guide: Causes, Fixes & Rollover Danger | LoanPay Auto" description="Owe more than your car is worth? Why negative equity happens, five ways out, why rolling it over compounds the damage — with a $6,000 example." slug="upside-down-car-loan-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Finance well &middot; negative equity
@@ -34,8 +56,9 @@ export default function UpsideDownPage() {
           of borrowers. It is fixable, but the most common fix (rolling the shortfall into the
           next loan) usually deepens the hole. Here are the five exits, ranked.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -192,24 +215,25 @@ export default function UpsideDownPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What does upside down on a car loan mean?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What does upside down on a car loan mean?</summary>
               <p className="mt-1">You owe more than the car&apos;s market value — negative equity. Common with small down payments, long terms, high rates, or rolled-over trade shortfalls.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I trade in a car I owe more on than it is worth?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I trade in a car I owe more on than it is worth?</summary>
               <p className="mt-1">Yes, but the shortfall is added to the new loan (plus interest), deepening the hole. Paying down principal or selling privately with cash for the gap is usually cheaper.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How do I get out of an upside-down loan fastest?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How do I get out of an upside-down loan fastest?</summary>
               <p className="mt-1">Extra principal payments plus keeping the car past the depreciation curve&apos;s steep part. Refinancing to a lower rate at the same term helps if loan-to-value allows.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Does gap insurance help if I am upside down?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Does gap insurance help if I am upside down?</summary>
               <p className="mt-1">Only after a total loss — it pays the lender the shortfall. It does not reduce the balance day to day. Buy it as protection while you pay the gap down.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -238,6 +262,7 @@ export default function UpsideDownPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

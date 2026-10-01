@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Disclaimer | LoanPay Auto",
+  alternates: {
+    canonical: "https://auto.loanpaylogic.com/disclaimer",
+  },
   description:
     "Disclaimer for auto.loanpaylogic.com: general car-buying education only, not financial, legal, or insurance advice.",
 };

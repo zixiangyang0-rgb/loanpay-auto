@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Electric vs. Gas Cost Comparison: 5-Year, 75,000-Mile Math | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Run 5-year totals, not paybacks on single factors — the buckets interact.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "Are electric cars cheaper than gas overall?",
+    "answer": "Often yes over 5 years for home-charging, average-mileage drivers — fuel and maintenance savings outweigh higher prices and insurance. Low-mileage or public-charging-only drivers may not break even."
+  },
+  {
+    "question": "How much does home EV charging cost?",
+    "answer": "At $0.16/kWh and 3.3 mi/kWh, about 5¢/mile — roughly $730/year for 15,000 miles. Overnight time-of-use rates can nearly halve that; a 240V outlet or ~$500–$1,500 home charger install is the setup cost."
+  },
+  {
+    "question": "Do EVs cost more to insure?",
+    "answer": "Typically 10–25% more than comparable gas cars due to repair costs. Get VIN-specific quotes before purchase — the gap varies widely by model."
+  },
+  {
+    "question": "How long do EV batteries last?",
+    "answer": "Most are warrantied 8 years/100,000 miles and data shows modest degradation (~10% over 100k+ miles for modern packs). Battery failure outside warranty is rare but expensive."
+  }
+];
+
 export default function EvVsGasPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Electric vs. Gas Cost Comparison: 5-Year, 75,000-Mile Math | LoanPay Auto" description="EV vs. gasoline total cost over 5 years and 75,000 miles: fuel, maintenance, insurance, depreciation, and break-even — with a $42,000 vs. $36,000 example." slug="electric-vs-gas-cost-comparison" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Go electric &middot; cost math
@@ -34,8 +56,9 @@ export default function EvVsGasPage() {
           depends on your miles, your electricity price, and which two cars you actually cross-
           shop. Here is the full five-year accounting, bucket by bucket.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -180,24 +203,25 @@ export default function EvVsGasPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Are electric cars cheaper than gas overall?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Are electric cars cheaper than gas overall?</summary>
               <p className="mt-1">Often yes over 5 years for home-charging, average-mileage drivers — fuel and maintenance savings outweigh higher prices and insurance. Low-mileage or public-charging-only drivers may not break even.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How much does home EV charging cost?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How much does home EV charging cost?</summary>
               <p className="mt-1">At $0.16/kWh and 3.3 mi/kWh, about 5¢/mile — roughly $730/year for 15,000 miles. Overnight time-of-use rates can nearly halve that; a 240V outlet or ~$500–$1,500 home charger install is the setup cost.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Do EVs cost more to insure?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Do EVs cost more to insure?</summary>
               <p className="mt-1">Typically 10–25% more than comparable gas cars due to repair costs. Get VIN-specific quotes before purchase — the gap varies widely by model.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How long do EV batteries last?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How long do EV batteries last?</summary>
               <p className="mt-1">Most are warrantied 8 years/100,000 miles and data shows modest degradation (~10% over 100k+ miles for modern packs). Battery failure outside warranty is rare but expensive.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -226,6 +250,7 @@ export default function EvVsGasPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

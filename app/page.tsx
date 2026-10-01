@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "./components/AdSlot";
+import { OrgJsonLd } from "./lib/schema";
 
 export const metadata: Metadata = {
   title: "LoanPay Auto | Car-Buying, Financing, EV & Ownership Guides",
@@ -201,6 +203,7 @@ const clusters: Cluster[] = [
 export default function HomePage() {
   return (
     <div className="mx-auto w-full max-w-5xl px-6 pb-16">
+      <OrgJsonLd />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-14 text-center sm:px-12">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           auto.loanpaylogic.com
@@ -228,6 +231,10 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      <div className="mt-8">
+        <AdSlot format="display" slot="TODO-auto-home-display" />
+      </div>
 
       {clusters.map((cluster) => (
         <section key={cluster.id} className="mt-12">

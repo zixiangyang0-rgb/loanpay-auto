@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "New Car Negotiation Guide: Out-the-Door Tactics That Work | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Shop at month-end or quarter-end when volume bonuses make managers flexible — but never rush past a bad number.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "What is a good discount off MSRP on a new car?",
+    "answer": "It varies by model and region — check live transaction data for your ZIP code rather than chasing a fixed percent. Mainstream cars often transact 5–10% under MSRP; scarce or redesigned models may sell at sticker."
+  },
+  {
+    "question": "Should I negotiate monthly payment or total price?",
+    "answer": "Total out-the-door price, always. Monthly payments can hide rate markup, stretched terms, and packed fees. Settle price first, then evaluate financing separately."
+  },
+  {
+    "question": "When is the best time to buy a new car?",
+    "answer": "Month-end and quarter-end help because of volume bonuses, and model-year changeover (late summer–fall) discounts outgoing years. But a competitive multi-dealer bid beats any calendar trick."
+  },
+  {
+    "question": "Are dealer doc fees negotiable?",
+    "answer": "They are rarely deleted (dealers cite policy), but they are always offsettable — simply lower your price offer by the fee amount and compare out-the-door totals."
+  }
+];
+
 export default function NegotiationPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="New Car Negotiation Guide: Out-the-Door Tactics That Work | LoanPay Auto" description="Negotiate a new car like a pro: invoice vs. MSRP, out-the-door pricing, fee traps, email scripts, and a $35,000 worked example." slug="new-car-negotiation-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Buy smart &middot; dealer tactics
@@ -35,8 +57,9 @@ export default function NegotiationPage() {
           what to say by email and in person, and how a disciplined process saves thousands on a
           typical $35,000 purchase.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -182,24 +205,25 @@ export default function NegotiationPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What is a good discount off MSRP on a new car?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What is a good discount off MSRP on a new car?</summary>
               <p className="mt-1">It varies by model and region — check live transaction data for your ZIP code rather than chasing a fixed percent. Mainstream cars often transact 5–10% under MSRP; scarce or redesigned models may sell at sticker.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Should I negotiate monthly payment or total price?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Should I negotiate monthly payment or total price?</summary>
               <p className="mt-1">Total out-the-door price, always. Monthly payments can hide rate markup, stretched terms, and packed fees. Settle price first, then evaluate financing separately.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">When is the best time to buy a new car?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">When is the best time to buy a new car?</summary>
               <p className="mt-1">Month-end and quarter-end help because of volume bonuses, and model-year changeover (late summer–fall) discounts outgoing years. But a competitive multi-dealer bid beats any calendar trick.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Are dealer doc fees negotiable?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Are dealer doc fees negotiable?</summary>
               <p className="mt-1">They are rarely deleted (dealers cite policy), but they are always offsettable — simply lower your price offer by the fee amount and compare out-the-door totals.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -232,6 +256,7 @@ export default function NegotiationPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

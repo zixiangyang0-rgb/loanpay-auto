@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Is Certified Pre-Owned Worth It? Premium vs. Warranty Value | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Ask whether certification includes loan-rate discounts or trial maintenance perks.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "How much more does CPO cost?",
+    "answer": "Typically $1,500–$2,500 over an equivalent non-certified car — less for mainstream models, more for luxury brands with longer extensions."
+  },
+  {
+    "question": "Is dealer-certified the same as factory CPO?",
+    "answer": "No. Only manufacturer programs extend the factory warranty honored nationwide. Dealer-only certification is a bundled third-party contract — judge it against independent warranty quotes."
+  },
+  {
+    "question": "What mileage and age limits apply to CPO?",
+    "answer": "Most programs accept cars up to 5–6 years old with 60,000–80,000 miles, then extend powertrain coverage to about 6–7 years or 100,000 miles from the original sale date."
+  },
+  {
+    "question": "Can you negotiate a CPO price?",
+    "answer": "Yes. Anchor on the non-certified market price plus a fair certification value, verify the in-service date and booklet, and get competing CPO bids from multiple dealers."
+  }
+];
+
 export default function CpoPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Is Certified Pre-Owned Worth It? Premium vs. Warranty Value | LoanPay Auto" description="CPO cars cost $1,500–$2,500 more than regular used cars. Learn what certification really covers, which programs are strongest, and when the premium pays off." slug="certified-pre-owned-worth-it" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Buy smart &middot; used values
@@ -34,8 +56,9 @@ export default function CpoPage() {
           mind. The reality is nuanced — the premium is real, the warranties vary enormously, and
           the value depends entirely on the car&apos;s reliability record and your repair budget.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -176,24 +199,25 @@ export default function CpoPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How much more does CPO cost?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How much more does CPO cost?</summary>
               <p className="mt-1">Typically $1,500–$2,500 over an equivalent non-certified car — less for mainstream models, more for luxury brands with longer extensions.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Is dealer-certified the same as factory CPO?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Is dealer-certified the same as factory CPO?</summary>
               <p className="mt-1">No. Only manufacturer programs extend the factory warranty honored nationwide. Dealer-only certification is a bundled third-party contract — judge it against independent warranty quotes.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What mileage and age limits apply to CPO?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What mileage and age limits apply to CPO?</summary>
               <p className="mt-1">Most programs accept cars up to 5–6 years old with 60,000–80,000 miles, then extend powertrain coverage to about 6–7 years or 100,000 miles from the original sale date.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can you negotiate a CPO price?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can you negotiate a CPO price?</summary>
               <p className="mt-1">Yes. Anchor on the non-certified market price plus a fair certification value, verify the in-service date and booklet, and get competing CPO bids from multiple dealers.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -222,6 +246,7 @@ export default function CpoPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

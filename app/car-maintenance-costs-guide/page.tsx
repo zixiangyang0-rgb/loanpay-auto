@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Car Maintenance Costs Guide: Year-by-Year Budgets | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Build a repair fund ($50–$100/month) so a $1,200 surprise never becomes credit-card debt.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "How much should I budget for car maintenance yearly?",
+    "answer": "Roughly $600–$900/year for years 1–5 and $1,000–$1,500/year after year 6 on mainstream cars; luxury models run 1.5–2×. A $100/month repair fund covers most profiles."
+  },
+  {
+    "question": "What is the 30/60/90k service?",
+    "answer": "Major scheduled services bundling fluids, filters, spark plugs, and inspections — typically $400–$800 at independent shops. Skipping them risks the costliest failures."
+  },
+  {
+    "question": "Are dealer service departments worth the premium?",
+    "answer": "For warranty work, complex diagnostics, and software updates — yes. For routine wear work, quality independents deliver equal results far cheaper. Split by job type."
+  },
+  {
+    "question": "Do EVs cost less to maintain?",
+    "answer": "Yes — roughly 30–40% less scheduled maintenance (no oil, fewer brakes). Tires wear faster and out-of-warranty battery failures are costly but rare; warranties cover 8yr/100k mi."
+  }
+];
+
 export default function MaintenancePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Car Maintenance Costs Guide: Year-by-Year Budgets | LoanPay Auto" description="What car maintenance really costs: year-by-year budgets from $500 basics to $1,200+ repair years, 30/60/90k services, tires, brakes, and batteries." slug="car-maintenance-costs-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Ownership &middot; upkeep
@@ -34,8 +56,9 @@ export default function MaintenancePage() {
           budgets. Here are the real year-by-year numbers, the services that matter most, and how
           to keep a car reliable without overpaying the dealer.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -182,24 +205,25 @@ export default function MaintenancePage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How much should I budget for car maintenance yearly?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How much should I budget for car maintenance yearly?</summary>
               <p className="mt-1">Roughly $600–$900/year for years 1–5 and $1,000–$1,500/year after year 6 on mainstream cars; luxury models run 1.5–2×. A $100/month repair fund covers most profiles.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What is the 30/60/90k service?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What is the 30/60/90k service?</summary>
               <p className="mt-1">Major scheduled services bundling fluids, filters, spark plugs, and inspections — typically $400–$800 at independent shops. Skipping them risks the costliest failures.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Are dealer service departments worth the premium?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Are dealer service departments worth the premium?</summary>
               <p className="mt-1">For warranty work, complex diagnostics, and software updates — yes. For routine wear work, quality independents deliver equal results far cheaper. Split by job type.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Do EVs cost less to maintain?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Do EVs cost less to maintain?</summary>
               <p className="mt-1">Yes — roughly 30–40% less scheduled maintenance (no oil, fewer brakes). Tires wear faster and out-of-warranty battery failures are costly but rare; warranties cover 8yr/100k mi.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -228,6 +252,7 @@ export default function MaintenancePage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

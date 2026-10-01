@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Extended Warranty Pros & Cons: Service Contracts Decoded | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Run the self-insure test: could you cover the likeliest repair from savings instead?",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "Are extended car warranties worth it?",
+    "answer": "Sometimes — mainly for repair-prone vehicles owned past factory coverage by buyers without a repair reserve. On reliable cars, the average holder claims less than the premium."
+  },
+  {
+    "question": "Can I buy an extended warranty later?",
+    "answer": "Yes. Manufacturer contracts are usually available until the factory warranty expires, and third-party plans anytime. Never let urgency force a finance-office signature."
+  },
+  {
+    "question": "What voids an extended warranty?",
+    "answer": "Common killers: missed scheduled maintenance, unapproved modifications, commercial use on a personal contract, and pre-existing conditions found at claim time. Read the booklet."
+  },
+  {
+    "question": "Can I cancel an extended warranty?",
+    "answer": "Usually yes — full refund within 30–60 days, pro-rata after (minus a fee). If financed, the refund goes to the lender and lowers your balance rather than your pocket."
+  }
+];
+
 export default function WarrantyPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Extended Warranty Pros & Cons: Service Contracts Decoded | LoanPay Auto" description="Should you buy an extended car warranty? Pricing, exclusion lists, claim realities, and the self-insure test — with a $2,400 worked example." slug="extended-warranty-pros-cons" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Ownership &middot; protection products
@@ -34,8 +56,9 @@ export default function WarrantyPage() {
           into the payment. This guide decodes what these service contracts really cover, what
           they cost, when they pay off — and when your savings account is the better warranty.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -179,24 +202,25 @@ export default function WarrantyPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Are extended car warranties worth it?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Are extended car warranties worth it?</summary>
               <p className="mt-1">Sometimes — mainly for repair-prone vehicles owned past factory coverage by buyers without a repair reserve. On reliable cars, the average holder claims less than the premium.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I buy an extended warranty later?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I buy an extended warranty later?</summary>
               <p className="mt-1">Yes. Manufacturer contracts are usually available until the factory warranty expires, and third-party plans anytime. Never let urgency force a finance-office signature.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What voids an extended warranty?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What voids an extended warranty?</summary>
               <p className="mt-1">Common killers: missed scheduled maintenance, unapproved modifications, commercial use on a personal contract, and pre-existing conditions found at claim time. Read the booklet.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I cancel an extended warranty?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I cancel an extended warranty?</summary>
               <p className="mt-1">Usually yes — full refund within 30–60 days, pro-rata after (minus a fee). If financed, the refund goes to the lender and lowers your balance rather than your pocket.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -225,6 +249,7 @@ export default function WarrantyPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

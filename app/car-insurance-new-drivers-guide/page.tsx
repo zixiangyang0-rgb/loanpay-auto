@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Car Insurance for New Drivers: Costs & Six Ways to Save | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Re-shop every 6–12 months — new-driver premiums fall fast with clean history.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "How much is insurance for a new driver?",
+    "answer": "Teens typically add $2,500–$4,500/year to a family policy; standalone teen policies can exceed $5,000. Adult first-time drivers pay less but still face new-driver surcharges."
+  },
+  {
+    "question": "Is it cheaper to add a teen to parents' policy?",
+    "answer": "Almost always — multi-car, bundling, and loyalty discounts apply, often saving 40–60% versus a standalone policy. Keep them on the family policy as long as eligible."
+  },
+  {
+    "question": "What is the good student discount worth?",
+    "answer": "Typically 10–20% for a B average or better — often the single biggest teen discount. Most insurers require proof each school term."
+  },
+  {
+    "question": "When do new-driver rates go down?",
+    "answer": "Meaningfully each clean year, with major drops around ages 19, 21, and 25. Re-shop every 6–12 months — carriers price improving histories very differently."
+  }
+];
+
 export default function NewDriversPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Car Insurance for New Drivers: Costs & Six Ways to Save | LoanPay Auto" description="Why new-driver premiums run $3,000–$5,000 a year, what sets the price, and six proven discounts — with a teen-driver worked example." slug="car-insurance-new-drivers-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Insurance &middot; new drivers
@@ -34,8 +56,9 @@ export default function NewDriversPage() {
           payment itself. Understand why the price is high, what actually moves it, and the six
           levers that cut hundreds per year.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -174,24 +197,25 @@ export default function NewDriversPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How much is insurance for a new driver?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How much is insurance for a new driver?</summary>
               <p className="mt-1">Teens typically add $2,500–$4,500/year to a family policy; standalone teen policies can exceed $5,000. Adult first-time drivers pay less but still face new-driver surcharges.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Is it cheaper to add a teen to parents&apos; policy?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Is it cheaper to add a teen to parents&apos; policy?</summary>
               <p className="mt-1">Almost always — multi-car, bundling, and loyalty discounts apply, often saving 40–60% versus a standalone policy. Keep them on the family policy as long as eligible.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What is the good student discount worth?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What is the good student discount worth?</summary>
               <p className="mt-1">Typically 10–20% for a B average or better — often the single biggest teen discount. Most insurers require proof each school term.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">When do new-driver rates go down?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">When do new-driver rates go down?</summary>
               <p className="mt-1">Meaningfully each clean year, with major drops around ages 19, 21, and 25. Re-shop every 6–12 months — carriers price improving histories very differently.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -220,6 +244,7 @@ export default function NewDriversPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

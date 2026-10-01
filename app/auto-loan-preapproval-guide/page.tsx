@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Auto Loan Preapproval Guide: Rates, Scores & Timing | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Bring your preapproval letter to the dealer and let their finance desk try to beat it in writing.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "Does preapproval hurt your credit score?",
+    "answer": "Quotes use soft pulls (no impact); funding needs one hard pull costing a few points temporarily. Applications within a 14-day window count as a single inquiry for scoring."
+  },
+  {
+    "question": "How long does auto loan preapproval last?",
+    "answer": "Usually 30–60 days. Apply 2–4 weeks before purchase so the letter is fresh and your score has stabilized after any cleanup."
+  },
+  {
+    "question": "What credit score gets the best auto rates?",
+    "answer": "Generally 720+ on FICO Auto Score for top-tier rates; 660–719 pays roughly 1–2 points more. Below 660, larger down payments and shorter terms limit the damage."
+  },
+  {
+    "question": "Can the dealer beat my preapproved rate?",
+    "answer": "Often yes — especially with manufacturer-subsidized specials. Bring the letter, invite them to beat it in writing, and keep the better offer. Never accept a verbal rate."
+  }
+];
+
 export default function PreapprovalPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Auto Loan Preapproval Guide: Rates, Scores & Timing | LoanPay Auto" description="Get preapproved before you shop: how preapproval works, hard vs. soft pulls, the 14-day rate-shopping window, and a $28,000 loan example." slug="auto-loan-preapproval-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Finance well &middot; loans
@@ -34,8 +56,9 @@ export default function PreapprovalPage() {
           the dealer controls the price, the rate, and the trade. Preapproval unties that hand —
           here is how it works, what it costs your credit score, and how to use it as leverage.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -178,24 +201,25 @@ export default function PreapprovalPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Does preapproval hurt your credit score?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Does preapproval hurt your credit score?</summary>
               <p className="mt-1">Quotes use soft pulls (no impact); funding needs one hard pull costing a few points temporarily. Applications within a 14-day window count as a single inquiry for scoring.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How long does auto loan preapproval last?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How long does auto loan preapproval last?</summary>
               <p className="mt-1">Usually 30–60 days. Apply 2–4 weeks before purchase so the letter is fresh and your score has stabilized after any cleanup.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What credit score gets the best auto rates?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What credit score gets the best auto rates?</summary>
               <p className="mt-1">Generally 720+ on FICO Auto Score for top-tier rates; 660–719 pays roughly 1–2 points more. Below 660, larger down payments and shorter terms limit the damage.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can the dealer beat my preapproved rate?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can the dealer beat my preapproved rate?</summary>
               <p className="mt-1">Often yes — especially with manufacturer-subsidized specials. Bring the letter, invite them to beat it in writing, and keep the better offer. Never accept a verbal rate.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -224,6 +248,7 @@ export default function PreapprovalPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

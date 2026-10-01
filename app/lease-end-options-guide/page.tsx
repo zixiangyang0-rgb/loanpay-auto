@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Lease-End Options Guide: Return, Buy Out, Extend or Trade | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Never auto-renew or roll into a new lease at the same dealer without competing bids.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "Should I buy my car at lease end?",
+    "answer": "If market value clearly exceeds residual + tax/fees and you like the car — yes, you keep a known-history vehicle below market. If value trails residual, return it."
+  },
+  {
+    "question": "What fees apply when returning a lease?",
+    "answer": "Disposition ($350–$500), excess mileage ($0.15–$0.30/mi), and excess wear per the inspection. Get the free pre-inspection and fix retail-cheap flagged items."
+  },
+  {
+    "question": "Can I extend my car lease?",
+    "answer": "Most lessors allow month-to-month extensions up to 6–12 months — useful as a bridge to a redesign or payoff milestone, but not as a long-term plan."
+  },
+  {
+    "question": "Can I trade in a leased car?",
+    "answer": "Yes — dealers can buy out the lease and apply equity to your next car, subject to lessor third-party buyout rules. Get independent bids first so none of your equity leaks."
+  }
+];
+
 export default function LeaseEndPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Lease-End Options Guide: Return, Buy Out, Extend or Trade | LoanPay Auto" description="Your car lease is ending. Compare returning, buying out at residual, extending, or trading — with fee checklists, equity math, and a $18,400 example." slug="lease-end-options-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Finance well &middot; leases
@@ -34,8 +56,9 @@ export default function LeaseEndPage() {
           one depends on a single comparison: your car&apos;s market value versus its contract
           residual. Here is how to run it and avoid the classic turn-in traps.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -176,24 +199,25 @@ export default function LeaseEndPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Should I buy my car at lease end?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Should I buy my car at lease end?</summary>
               <p className="mt-1">If market value clearly exceeds residual + tax/fees and you like the car — yes, you keep a known-history vehicle below market. If value trails residual, return it.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What fees apply when returning a lease?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What fees apply when returning a lease?</summary>
               <p className="mt-1">Disposition ($350–$500), excess mileage ($0.15–$0.30/mi), and excess wear per the inspection. Get the free pre-inspection and fix retail-cheap flagged items.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I extend my car lease?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I extend my car lease?</summary>
               <p className="mt-1">Most lessors allow month-to-month extensions up to 6–12 months — useful as a bridge to a redesign or payoff milestone, but not as a long-term plan.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I trade in a leased car?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I trade in a leased car?</summary>
               <p className="mt-1">Yes — dealers can buy out the lease and apply equity to your next car, subject to lessor third-party buyout rules. Get independent bids first so none of your equity leaks.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -222,6 +246,7 @@ export default function LeaseEndPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "EV Tax Credit 2026 Guide: What Remains After Expiry | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Track legislation — credit policy has reversed before and could change again.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "Is there a federal EV tax credit in 2026?",
+    "answer": "No — the new ($7,500), used ($4,000), and commercial clean-vehicle credits all ended for vehicles acquired after Sept. 30, 2025. Only pre-deadline acquisitions remain claimable."
+  },
+  {
+    "question": "What were the old EV credit income caps?",
+    "answer": "For the expired new-vehicle credit: $300,000 joint, $225,000 head of household, $150,000 single (lesser of purchase or prior year). They matter now mainly for pre-deadline claims."
+  },
+  {
+    "question": "Do leased EVs still get credit discounts in 2026?",
+    "answer": "The commercial-credit pass-through that subsidized many EV leases also ended. Compare 2026 lease payments against financing — the old lease advantage has largely reset."
+  },
+  {
+    "question": "What incentives can 2026 EV buyers still get?",
+    "answer": "State rebates/credits, utility charger and rate incentives, and dealer discounts on ample EV inventory. Check your state energy office for current amounts and screens."
+  }
+];
+
 export default function EvCreditPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="EV Tax Credit 2026 Guide: What Remains After Expiry | LoanPay Auto" description="Federal EV credits ended Sept. 30, 2025. What 2026 buyers need to know: expired $7,500/$4,000 rules, state incentives, used-EV pricing, and lease math." slug="ev-tax-credit-2026-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Go electric &middot; 2026 tax reality
@@ -34,8 +56,9 @@ export default function EvCreditPage() {
           absorbed. This guide explains what expired, what the old rules were (so you can decode
           used listings and old advice), and where the real 2026 savings now live.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -181,24 +204,25 @@ export default function EvCreditPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Is there a federal EV tax credit in 2026?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Is there a federal EV tax credit in 2026?</summary>
               <p className="mt-1">No — the new ($7,500), used ($4,000), and commercial clean-vehicle credits all ended for vehicles acquired after Sept. 30, 2025. Only pre-deadline acquisitions remain claimable.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What were the old EV credit income caps?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What were the old EV credit income caps?</summary>
               <p className="mt-1">For the expired new-vehicle credit: $300,000 joint, $225,000 head of household, $150,000 single (lesser of purchase or prior year). They matter now mainly for pre-deadline claims.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Do leased EVs still get credit discounts in 2026?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Do leased EVs still get credit discounts in 2026?</summary>
               <p className="mt-1">The commercial-credit pass-through that subsidized many EV leases also ended. Compare 2026 lease payments against financing — the old lease advantage has largely reset.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What incentives can 2026 EV buyers still get?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What incentives can 2026 EV buyers still get?</summary>
               <p className="mt-1">State rebates/credits, utility charger and rate incentives, and dealer discounts on ample EV inventory. Check your state energy office for current amounts and screens.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -228,6 +252,7 @@ export default function EvCreditPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

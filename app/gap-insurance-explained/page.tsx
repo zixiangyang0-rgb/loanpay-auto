@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "GAP Insurance Explained: Costs, Coverage & Who Needs It | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Cancel gap when your loan balance drops safely below the car's value; stop paying for nothing.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "How much does gap insurance cost?",
+    "answer": "Through an auto insurer, typically $20–$50 per year. Dealer-sold gap runs $400–$800 one-time — get the insurer quote first and compare."
+  },
+  {
+    "question": "Does gap insurance cover my deductible?",
+    "answer": "Sometimes up to a cap — many policies include $500–$1,000 of deductible coverage, but some exclude it. Check the terms before assuming."
+  },
+  {
+    "question": "Is gap insurance required on a lease?",
+    "answer": "Many leases include it automatically; some require you to buy it. Read the lease agreement — never pay for duplicate gap you already have."
+  },
+  {
+    "question": "When should I cancel gap insurance?",
+    "answer": "When your loan balance drops safely below the car's actual cash value — often around year 2–3 of a standard loan. Re-check payoff vs. market value yearly."
+  }
+];
+
 export default function GapPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="GAP Insurance Explained: Costs, Coverage & Who Needs It | LoanPay Auto" description="What gap insurance covers after a total loss, what it excludes, typical costs ($20–$50/yr via insurers), and a $30,000 worked example." slug="gap-insurance-explained" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Insurance &middot; loan protection
@@ -35,8 +57,9 @@ export default function GapPage() {
           difference. Here is how the gap forms, what the coverage costs, and who actually needs
           it.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -178,24 +201,25 @@ export default function GapPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How much does gap insurance cost?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How much does gap insurance cost?</summary>
               <p className="mt-1">Through an auto insurer, typically $20–$50 per year. Dealer-sold gap runs $400–$800 one-time — get the insurer quote first and compare.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Does gap insurance cover my deductible?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Does gap insurance cover my deductible?</summary>
               <p className="mt-1">Sometimes up to a cap — many policies include $500–$1,000 of deductible coverage, but some exclude it. Check the terms before assuming.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Is gap insurance required on a lease?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Is gap insurance required on a lease?</summary>
               <p className="mt-1">Many leases include it automatically; some require you to buy it. Read the lease agreement — never pay for duplicate gap you already have.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">When should I cancel gap insurance?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">When should I cancel gap insurance?</summary>
               <p className="mt-1">When your loan balance drops safely below the car&apos;s actual cash value — often around year 2–3 of a standard loan. Re-check payoff vs. market value yearly.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -224,6 +248,7 @@ export default function GapPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

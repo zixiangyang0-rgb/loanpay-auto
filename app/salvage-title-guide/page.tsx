@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Salvage Title Guide: Rebuilt Cars, Risks & Value | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Plan the exit: branded cars resell only to bargain hunters, at steep discounts, slowly.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "What is a rebuilt title?",
+    "answer": "A salvage car repaired and state-inspected for road use. It is legal to drive and register, but carries a permanent brand cutting value 30–50% and restricting financing and insurance."
+  },
+  {
+    "question": "Can you insure a salvage-title car?",
+    "answer": "Often yes for liability; full coverage is harder — many carriers restrict or surcharge branded titles. Get a bindable quote in writing before purchase."
+  },
+  {
+    "question": "Can you finance a rebuilt-title car?",
+    "answer": "Rarely through mainstream lenders, and then at higher rates with lower loan-to-value. Most branded-title deals are cash — budget accordingly."
+  },
+  {
+    "question": "Are flood-damaged cars ever worth buying?",
+    "answer": "Almost never for drivers — corrosion and electronic faults surface for years and no inspection fully excludes them. The discount cannot price what cannot be found."
+  }
+];
+
 export default function SalvagePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Salvage Title Guide: Rebuilt Cars, Risks & Value | LoanPay Auto" description="What salvage, rebuilt, flood, and lemon-law title brands mean for safety, insurance, financing, and resale — with a 40%-discount worked example." slug="salvage-title-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Buy smart &middot; title brands
@@ -34,8 +56,9 @@ export default function SalvagePage() {
           the uninformed. Learn what each brand means, when the discount is genuine value, and
           when to walk away.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -180,24 +203,25 @@ export default function SalvagePage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What is a rebuilt title?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What is a rebuilt title?</summary>
               <p className="mt-1">A salvage car repaired and state-inspected for road use. It is legal to drive and register, but carries a permanent brand cutting value 30–50% and restricting financing and insurance.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can you insure a salvage-title car?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can you insure a salvage-title car?</summary>
               <p className="mt-1">Often yes for liability; full coverage is harder — many carriers restrict or surcharge branded titles. Get a bindable quote in writing before purchase.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can you finance a rebuilt-title car?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can you finance a rebuilt-title car?</summary>
               <p className="mt-1">Rarely through mainstream lenders, and then at higher rates with lower loan-to-value. Most branded-title deals are cash — budget accordingly.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Are flood-damaged cars ever worth buying?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Are flood-damaged cars ever worth buying?</summary>
               <p className="mt-1">Almost never for drivers — corrosion and electronic faults surface for years and no inspection fully excludes them. The discount cannot price what cannot be found.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -226,6 +250,7 @@ export default function SalvagePage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

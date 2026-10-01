@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Lemon Law Guide: State Rules, Repair Attempts & Buybacks | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Use state arbitration programs or a consumer attorney (many work on fee-shifting) before giving up.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "What qualifies a car as a lemon?",
+    "answer": "A warranty-covered defect substantially impairing use, value, or safety that the manufacturer cannot fix after a reasonable number of attempts (often 3–4) or ~30 days out of service — exact tests vary by state."
+  },
+  {
+    "question": "Do lemon laws cover used cars?",
+    "answer": "Mostly they target new vehicles; some states extend to used cars still under factory warranty (e.g., New York's used-car law for dealer sales). Check your state — private sales are rarely covered."
+  },
+  {
+    "question": "Refund or replacement — which is better?",
+    "answer": "Refunds free you to choose any next car; replacements keep you in the brand without shopping. Compare the usage-offset deduction against the replacement's value before electing."
+  },
+  {
+    "question": "Do I need a lawyer for a lemon claim?",
+    "answer": "State arbitration programs handle many claims without one, but fee-shifting statutes mean consumer attorneys often cost you nothing upfront. Consult one before deadlines expire."
+  }
+];
+
 export default function LemonLawPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Lemon Law Guide: State Rules, Repair Attempts & Buybacks | LoanPay Auto" description="Stuck with a defective car? How state lemon laws work: reasonable repair attempts, deadlines, documentation, buyback vs. replacement — with a case example." slug="lemon-law-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Ownership &middot; consumer rights
@@ -34,8 +56,9 @@ export default function LemonLawPage() {
           covered defects, reasonable attempts, deadlines, and remedies — plus exactly how to
           document a claim your state will honor.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -184,24 +207,25 @@ export default function LemonLawPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What qualifies a car as a lemon?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What qualifies a car as a lemon?</summary>
               <p className="mt-1">A warranty-covered defect substantially impairing use, value, or safety that the manufacturer cannot fix after a reasonable number of attempts (often 3–4) or ~30 days out of service — exact tests vary by state.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Do lemon laws cover used cars?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Do lemon laws cover used cars?</summary>
               <p className="mt-1">Mostly they target new vehicles; some states extend to used cars still under factory warranty (e.g., New York&apos;s used-car law for dealer sales). Check your state — private sales are rarely covered.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Refund or replacement — which is better?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Refund or replacement — which is better?</summary>
               <p className="mt-1">Refunds free you to choose any next car; replacements keep you in the brand without shopping. Compare the usage-offset deduction against the replacement&apos;s value before electing.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Do I need a lawyer for a lemon claim?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Do I need a lawyer for a lemon claim?</summary>
               <p className="mt-1">State arbitration programs handle many claims without one, but fee-shifting statutes mean consumer attorneys often cost you nothing upfront. Consult one before deadlines expire.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -230,6 +254,7 @@ export default function LemonLawPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Selling Your Car Private vs. Dealer: Net Proceeds Compared | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "File release-of-liability / transfer notice with your DMV immediately after handover.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "Do I get more selling private or to a dealer?",
+    "answer": "Private sale typically nets 10–20% more — often $1,000–$3,000 on mainstream cars — at the cost of weeks of effort and stranger risk. Dealer and instant buyers trade dollars for speed and safety."
+  },
+  {
+    "question": "How do I avoid scams selling my car?",
+    "answer": "Accept only verifiable funds (bank-verified cashier's check, confirmed wire, or bank-lobby cash), meet publicly, never accept overpayments, and complete lien payoffs inside a bank."
+  },
+  {
+    "question": "Can I sell a car with a loan on it?",
+    "answer": "Yes — get the 10-day payoff quote, then transact at a bank so the buyer's funds retire the lien and the title releases cleanly. Any equity above payoff is yours."
+  },
+  {
+    "question": "When is trading in smarter than selling private?",
+    "answer": "When the sales-tax credit plus convenience nears private net, when you carry tricky payoff logistics, or when your time values above the ~$1,000–$2,000 typical gap."
+  }
+];
+
 export default function SellingPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Selling Your Car Private vs. Dealer: Net Proceeds Compared | LoanPay Auto" description="Private sale vs. dealer vs. instant cash: net proceeds, effort, timing, paperwork, and scam screens — with a $16,000 worked example." slug="selling-car-private-vs-dealer" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Sell well &middot; exit strategies
@@ -34,8 +56,9 @@ export default function SellingPage() {
           effort, timing, and risk. Compare all three channels honestly, then execute the winner
           without drama.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -186,24 +209,25 @@ export default function SellingPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Do I get more selling private or to a dealer?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Do I get more selling private or to a dealer?</summary>
               <p className="mt-1">Private sale typically nets 10–20% more — often $1,000–$3,000 on mainstream cars — at the cost of weeks of effort and stranger risk. Dealer and instant buyers trade dollars for speed and safety.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How do I avoid scams selling my car?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How do I avoid scams selling my car?</summary>
               <p className="mt-1">Accept only verifiable funds (bank-verified cashier&apos;s check, confirmed wire, or bank-lobby cash), meet publicly, never accept overpayments, and complete lien payoffs inside a bank.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I sell a car with a loan on it?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I sell a car with a loan on it?</summary>
               <p className="mt-1">Yes — get the 10-day payoff quote, then transact at a bank so the buyer&apos;s funds retire the lien and the title releases cleanly. Any equity above payoff is yours.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">When is trading in smarter than selling private?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">When is trading in smarter than selling private?</summary>
               <p className="mt-1">When the sales-tax credit plus convenience nears private net, when you carry tricky payoff logistics, or when your time values above the ~$1,000–$2,000 typical gap.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -232,6 +256,7 @@ export default function SellingPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

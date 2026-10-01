@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "First-Time Car Buyer Guide: Budget to Paperwork | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Read every line of the buyer's order and loan contract before signing; never rush day one.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "How much car can I afford on my income?",
+    "answer": "Keep the payment under 10–12% of take-home and all car costs under 15%. On $3,500 take-home that is roughly a $350–$420 payment within a $525 total budget."
+  },
+  {
+    "question": "Can I buy a car with no credit history?",
+    "answer": "Yes — expect higher rates and bigger down-payment requirements. Credit unions, larger down payments, shorter terms, and qualified co-signers all improve approval and pricing."
+  },
+  {
+    "question": "Should my first car be new or used?",
+    "answer": "Usually a reliable 3–5-year-old used car: half the payment, cheaper insurance, gentler depreciation — while you build credit and claims history for the next purchase."
+  },
+  {
+    "question": "What paperwork do I need to buy a car?",
+    "answer": "Photo ID, proof of income and residence, insurance binder, preapproval letter, and down payment. Verify the buyer's order and loan contract line by line before signing."
+  }
+];
+
 export default function FirstTimePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="First-Time Car Buyer Guide: Budget to Paperwork | LoanPay Auto" description="Buying your first car? Budget rules, credit building, insurance shocks, dealer scripts, and paperwork — a complete start-to-finish walkthrough with numbers." slug="first-time-car-buyer-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Buy smart &middot; beginners
@@ -34,8 +56,9 @@ export default function FirstTimePage() {
           start-to-finish walkthrough covers budgeting, credit, insurance, negotiation, and
           paperwork, so the first deal is a good one.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -203,24 +226,25 @@ export default function FirstTimePage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How much car can I afford on my income?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How much car can I afford on my income?</summary>
               <p className="mt-1">Keep the payment under 10–12% of take-home and all car costs under 15%. On $3,500 take-home that is roughly a $350–$420 payment within a $525 total budget.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I buy a car with no credit history?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I buy a car with no credit history?</summary>
               <p className="mt-1">Yes — expect higher rates and bigger down-payment requirements. Credit unions, larger down payments, shorter terms, and qualified co-signers all improve approval and pricing.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Should my first car be new or used?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Should my first car be new or used?</summary>
               <p className="mt-1">Usually a reliable 3–5-year-old used car: half the payment, cheaper insurance, gentler depreciation — while you build credit and claims history for the next purchase.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What paperwork do I need to buy a car?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What paperwork do I need to buy a car?</summary>
               <p className="mt-1">Photo ID, proof of income and residence, insurance binder, preapproval letter, and down payment. Verify the buyer&apos;s order and loan contract line by line before signing.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -249,6 +273,7 @@ export default function FirstTimePage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

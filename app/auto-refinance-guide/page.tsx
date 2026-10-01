@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Auto Refinance Guide: When Refinancing Saves You Money | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Do not roll add-ons or cash-out extras into the refinance unless you have priced the true cost.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "When should I refinance my car loan?",
+    "answer": "When your score has risen meaningfully, market rates fell 1+ points, or you can shorten the term — typically months 6–36 with 2+ years of payments left and a car within age/mileage caps."
+  },
+  {
+    "question": "Does refinancing hurt your credit?",
+    "answer": "One hard inquiry (a few points, temporary) plus a new account that lowers average account age. The 14-day shopping window counts auto inquiries as one — and on-time payments rebuild fast."
+  },
+  {
+    "question": "Are there fees to refinance a car?",
+    "answer": "Usually minimal: $0–$100 in application, lien, or title fees. Confirm no prepayment penalty on the old loan and compare total interest, not just payments."
+  },
+  {
+    "question": "Can I refinance if I am upside down?",
+    "answer": "Sometimes, within lender loan-to-value caps (~110–125%). Deep negative equity usually requires paying down the balance first — see our upside-down loan guide for the playbook."
+  }
+];
+
 export default function RefinancePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Auto Refinance Guide: When Refinancing Saves You Money | LoanPay Auto" description="Refinance your car loan the right way: rate-drop math, term traps, fees, timing, and a $24,000 worked example saving $1,400." slug="auto-refinance-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Finance well &middot; loans
@@ -34,8 +56,9 @@ export default function RefinancePage() {
           have earned you a far better rate. Learn when refinancing pays, when it backfires, and
           how to compare the two loans honestly.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -192,24 +215,25 @@ export default function RefinancePage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">When should I refinance my car loan?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">When should I refinance my car loan?</summary>
               <p className="mt-1">When your score has risen meaningfully, market rates fell 1+ points, or you can shorten the term — typically months 6–36 with 2+ years of payments left and a car within age/mileage caps.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Does refinancing hurt your credit?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Does refinancing hurt your credit?</summary>
               <p className="mt-1">One hard inquiry (a few points, temporary) plus a new account that lowers average account age. The 14-day shopping window counts auto inquiries as one — and on-time payments rebuild fast.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Are there fees to refinance a car?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Are there fees to refinance a car?</summary>
               <p className="mt-1">Usually minimal: $0–$100 in application, lien, or title fees. Confirm no prepayment penalty on the old loan and compare total interest, not just payments.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I refinance if I am upside down?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I refinance if I am upside down?</summary>
               <p className="mt-1">Sometimes, within lender loan-to-value caps (~110–125%). Deep negative equity usually requires paying down the balance first — see our upside-down loan guide for the playbook.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -238,6 +262,7 @@ export default function RefinancePage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

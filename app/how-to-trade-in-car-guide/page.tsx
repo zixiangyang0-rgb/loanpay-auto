@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "How to Trade In Your Car: Value, Timing & Tax Credits | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Compare the best trade offer against private-party value minus your time and hassle (see our selling guide).",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "Do dealers give fair trade-in values?",
+    "answer": "They give wholesale-based values minus reconditioning and margin. Collect instant-cash quotes first so you know your floor, then make dealers beat the best one."
+  },
+  {
+    "question": "How does the trade-in tax credit work?",
+    "answer": "In most states you pay sales tax only on (new-car price − trade value). On a $13,000 trade at 6.5% tax that saves ~$845. A few states offer no credit — check yours."
+  },
+  {
+    "question": "Should I fix my car before trading it in?",
+    "answer": "Do cheap cosmetic fixes and detailing; skip expensive mechanical work like tires and brakes — dealers recondition at wholesale cost and you will not recover retail spending."
+  },
+  {
+    "question": "Can I trade in a car I still owe money on?",
+    "answer": "Yes — the dealer pays off the lender and applies any equity (or adds any shortfall) to the new deal. Get your 10-day payoff quote yourself and verify it on the contract."
+  }
+];
+
 export default function TradeInPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="How to Trade In Your Car: Value, Timing & Tax Credits | LoanPay Auto" description="Get top dollar for your trade-in: instant quotes, appraisal tactics, separating trade from purchase, sales-tax credits, and a $14,000 worked example." slug="how-to-trade-in-car-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Finance well &middot; trade-ins
@@ -34,8 +56,9 @@ export default function TradeInPage() {
           generous trade value while quietly inflating the new car&apos;s price — or vice versa.
           This guide separates the two deals so you win both.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -180,24 +203,25 @@ export default function TradeInPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Do dealers give fair trade-in values?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Do dealers give fair trade-in values?</summary>
               <p className="mt-1">They give wholesale-based values minus reconditioning and margin. Collect instant-cash quotes first so you know your floor, then make dealers beat the best one.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How does the trade-in tax credit work?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How does the trade-in tax credit work?</summary>
               <p className="mt-1">In most states you pay sales tax only on (new-car price − trade value). On a $13,000 trade at 6.5% tax that saves ~$845. A few states offer no credit — check yours.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Should I fix my car before trading it in?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Should I fix my car before trading it in?</summary>
               <p className="mt-1">Do cheap cosmetic fixes and detailing; skip expensive mechanical work like tires and brakes — dealers recondition at wholesale cost and you will not recover retail spending.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I trade in a car I still owe money on?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I trade in a car I still owe money on?</summary>
               <p className="mt-1">Yes — the dealer pays off the lender and applies any equity (or adds any shortfall) to the new deal. Get your 10-day payoff quote yourself and verify it on the contract.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -226,6 +250,7 @@ export default function TradeInPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

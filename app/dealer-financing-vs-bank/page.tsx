@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Dealer Financing vs. Bank: Rate Markup & Buy Rate Explained | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Read the Retail Installment Contract before signing: rate, term, amount financed, total of payments.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "Is dealer financing more expensive than a bank?",
+    "answer": "Often, due to reserve markup — but not always. Captive subsidized rates can beat banks, so get a bank baseline and force the dealer to beat it in writing."
+  },
+  {
+    "question": "What is the buy rate vs. the contract rate?",
+    "answer": "The buy rate is what the lender approved wholesale; the contract rate is what you sign. The gap (up to ~2 points) is dealer reserve profit. Ask for both in writing."
+  },
+  {
+    "question": "What is yo-yo financing?",
+    "answer": "Spot delivery followed by a callback claiming financing “fell through” and demanding a higher rate. Prevent it by refusing possession until funding is final."
+  },
+  {
+    "question": "Should I take the low APR or the cash rebate?",
+    "answer": "Compute both all-in totals: (amount financed + total interest) with and without the rebate. Either can win depending on rate gap, term, and rebate size."
+  }
+];
+
 export default function DealerVsBankPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Dealer Financing vs. Bank: Rate Markup & Buy Rate Explained | LoanPay Auto" description="Dealer vs. bank auto loans compared: buy rate vs. contract rate, reserve markup,yo-yo scams, and how to force honest competition — with numbers." slug="dealer-financing-vs-bank" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Finance well &middot; loan sources
@@ -34,8 +56,9 @@ export default function DealerVsBankPage() {
           paid to mark up your rate. This guide explains buy rates, reserve, and the paperwork
           traps, so you can pit dealer and bank against each other and keep the savings.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -183,24 +206,25 @@ export default function DealerVsBankPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Is dealer financing more expensive than a bank?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Is dealer financing more expensive than a bank?</summary>
               <p className="mt-1">Often, due to reserve markup — but not always. Captive subsidized rates can beat banks, so get a bank baseline and force the dealer to beat it in writing.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What is the buy rate vs. the contract rate?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What is the buy rate vs. the contract rate?</summary>
               <p className="mt-1">The buy rate is what the lender approved wholesale; the contract rate is what you sign. The gap (up to ~2 points) is dealer reserve profit. Ask for both in writing.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What is yo-yo financing?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What is yo-yo financing?</summary>
               <p className="mt-1">Spot delivery followed by a callback claiming financing &ldquo;fell through&rdquo; and demanding a higher rate. Prevent it by refusing possession until funding is final.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Should I take the low APR or the cash rebate?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Should I take the low APR or the cash rebate?</summary>
               <p className="mt-1">Compute both all-in totals: (amount financed + total interest) with and without the rebate. Either can win depending on rate gap, term, and rebate size.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -229,6 +253,7 @@ export default function DealerVsBankPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

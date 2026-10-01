@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Hybrid vs. Electric Guide: Which Saves You More? | LoanPay Auto",
@@ -19,9 +21,29 @@ const CHECKLIST = [
   "Test both back-to-back, including your commute and a cold-morning start if relevant.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "Is a hybrid or EV cheaper to own?",
+    "answer": "High-mileage home-chargers usually save most with EVs; moderate-mileage drivers without home charging usually save most with hybrids. Run your miles and energy prices — averages decide nothing."
+  },
+  {
+    "question": "Do plug-in hybrids make sense?",
+    "answer": "Only if you plug in nightly and your daily driving fits the electric range. Unplugged PHEVs cost more than regular hybrids while saving little — honest charging habits decide."
+  },
+  {
+    "question": "How long do hybrid and EV batteries last?",
+    "answer": "Both typically carry 8–10-year warranties; real-world data shows most outlast the car. Replacement is rare but expensive, so verify warranty transfer on used purchases."
+  },
+  {
+    "question": "Can I road-trip an EV easily?",
+    "answer": "Yes on major corridors with 20–40-minute fast-charge stops every 200+ miles; hybrids remain simpler for remote routes, towing, and minimal planning. Match the car to your actual trips."
+  }
+];
+
 export default function HybridVsEvPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Hybrid vs. Electric Guide: Which Saves You More? | LoanPay Auto" description="Hybrid vs. full electric compared: price gaps, fuel math, charging needs, maintenance, and the driving patterns that decide — with a 5-year example." slug="hybrid-vs-electric-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Go electric &middot; powertrain choice
@@ -34,8 +56,9 @@ export default function HybridVsEvPage() {
           The right answer lives in your garage, your commute, and your electrical panel — not in
           national averages. Here is how to find it.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -180,24 +203,25 @@ export default function HybridVsEvPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Is a hybrid or EV cheaper to own?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Is a hybrid or EV cheaper to own?</summary>
               <p className="mt-1">High-mileage home-chargers usually save most with EVs; moderate-mileage drivers without home charging usually save most with hybrids. Run your miles and energy prices — averages decide nothing.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Do plug-in hybrids make sense?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Do plug-in hybrids make sense?</summary>
               <p className="mt-1">Only if you plug in nightly and your daily driving fits the electric range. Unplugged PHEVs cost more than regular hybrids while saving little — honest charging habits decide.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How long do hybrid and EV batteries last?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How long do hybrid and EV batteries last?</summary>
               <p className="mt-1">Both typically carry 8–10-year warranties; real-world data shows most outlast the car. Replacement is rare but expensive, so verify warranty transfer on used purchases.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can I road-trip an EV easily?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can I road-trip an EV easily?</summary>
               <p className="mt-1">Yes on major corridors with 20–40-minute fast-charge stops every 200+ miles; hybrids remain simpler for remote routes, towing, and minimal planning. Match the car to your actual trips.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -226,6 +250,7 @@ export default function HybridVsEvPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

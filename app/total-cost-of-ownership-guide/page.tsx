@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TcoEstimator from "./estimator";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Total Cost of Ownership Guide: 5-Year True Car Cost | LoanPay Auto",
@@ -20,9 +22,33 @@ const CHECKLIST = [
   "Divide the 5-year total by 60 for the true monthly cost — then judge affordability.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "What is total cost of ownership for a car?",
+    "answer": "Purchase price plus 5 years of depreciation, fuel, insurance, maintenance, interest, and taxes — minus resale value. Typically 1.3–1.6× the sticker price over five years."
+  },
+  {
+    "question": "What is the biggest cost of owning a car?",
+    "answer": "Depreciation for new cars (often ~40% of 5-year TCO), then fuel and insurance. For older cars, repairs and fuel dominate since depreciation flattens."
+  },
+  {
+    "question": "How do I compare TCO between two cars?",
+    "answer": "Build both on identical assumptions (miles, years, insurance profile, APR), sum all six buckets minus resale, and compare true monthly cost — never sticker or payment."
+  },
+  {
+    "question": "When is repairing my old car smarter than replacing?",
+    "answer": "Usually until annual repairs exceed roughly half a replacement's true yearly cost for two years running. A $2,000 repair beats $8,000+ a year of replacement TCO."
+  },
+  {
+    "question": "Does paying cash change total cost of ownership?",
+    "answer": "It removes the interest bucket entirely — often $3,000–$6,000 over five years — but ties up capital. Compare the loan's total interest against what the cash could earn; low-rate loans on reliable cars often favor financing."
+  }
+];
+
 export default function TcoPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Total Cost of Ownership Guide: 5-Year True Car Cost | LoanPay Auto" description="The sticker price is half the story. Build a 5-year total cost of ownership: depreciation, fuel, insurance, repairs, interest — with estimator and $32,000 example." slug="total-cost-of-ownership-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Ownership &middot; true costs
@@ -35,8 +61,9 @@ export default function TcoPage() {
           depreciation, and repairs count. Learn to compute the true number — and use the
           estimator below to run your own comparison.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -196,28 +223,29 @@ export default function TcoPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What is total cost of ownership for a car?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What is total cost of ownership for a car?</summary>
               <p className="mt-1">Purchase price plus 5 years of depreciation, fuel, insurance, maintenance, interest, and taxes — minus resale value. Typically 1.3–1.6× the sticker price over five years.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What is the biggest cost of owning a car?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What is the biggest cost of owning a car?</summary>
               <p className="mt-1">Depreciation for new cars (often ~40% of 5-year TCO), then fuel and insurance. For older cars, repairs and fuel dominate since depreciation flattens.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How do I compare TCO between two cars?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How do I compare TCO between two cars?</summary>
               <p className="mt-1">Build both on identical assumptions (miles, years, insurance profile, APR), sum all six buckets minus resale, and compare true monthly cost — never sticker or payment.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">When is repairing my old car smarter than replacing?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">When is repairing my old car smarter than replacing?</summary>
               <p className="mt-1">Usually until annual repairs exceed roughly half a replacement&apos;s true yearly cost for two years running. A $2,000 repair beats $8,000+ a year of replacement TCO.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Does paying cash change total cost of ownership?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Does paying cash change total cost of ownership?</summary>
               <p className="mt-1">It removes the interest bucket entirely — often $3,000–$6,000 over five years — but ties up capital. Compare the loan&apos;s total interest against what the cash could earn; low-rate loans on reliable cars often favor financing.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -246,6 +274,7 @@ export default function TcoPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }

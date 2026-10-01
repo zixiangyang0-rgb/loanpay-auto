@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AdSlot from "../components/AdSlot";
+import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Usage-Based Insurance Guide: Telematics, Pay-Per-Mile & Privacy | LoanPay Auto",
@@ -19,9 +21,33 @@ const CHECKLIST = [
   "Recompute yearly — mileage and habits change, and the best program changes with them.",
 ];
 
+const FAQS: { question: string; answer: string }[] = [
+  {
+    "question": "How much can telematics save?",
+    "answer": "Typically 10–30% for safe patterns, plus 5–10% just for enrolling. Aggressive patterns may earn little — and a few programs surcharge the riskiest drivers."
+  },
+  {
+    "question": "Is pay-per-mile worth it?",
+    "answer": "Usually yes under ~10,000 miles/year — savings of 20–40% are common. Above ~15,000 miles, traditional policies typically win. Do the per-mile math on your odometer."
+  },
+  {
+    "question": "What data do UBI programs collect?",
+    "answer": "Location, speed, braking, acceleration, cornering, phone handling, and time of day — retained for years and shareable under the privacy policy. Odometer-only programs collect far less."
+  },
+  {
+    "question": "Can UBI raise my rates?",
+    "answer": "With most behavior programs your discount simply shrinks; a minority surcharge risky patterns. Ask before enrolling, and prefer trial-then-decide offers if you are unsure."
+  },
+  {
+    "question": "Do I need special hardware for telematics?",
+    "answer": "Most 2026 programs run on your smartphone — no plug-in device needed. A few still offer OBD-II dongles for cars without connected services; either way, setup takes minutes and removal restores the standard rate."
+  }
+];
+
 export default function UbiPage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
+      <ArticleJsonLd title="Usage-Based Insurance Guide: Telematics, Pay-Per-Mile & Privacy | LoanPay Auto" description="How usage-based insurance works: telematics discounts up to 30%, pay-per-mile math, what data is collected, and a 8,000-mile worked example." slug="usage-based-insurance-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Insurance &middot; telematics
@@ -35,8 +61,9 @@ export default function UbiPage() {
           savings reach 30 percent; for the wrong one, costs rise. Here is how to tell which you
           are.
         </p>
-        <p className="mt-4 text-xs text-slate-500">Updated: October 2026</p>
+        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
       </section>
+      <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
       <article className="mt-10 space-y-8 text-sm leading-relaxed text-slate-300">
         <section className="glass-card rounded-2xl p-6 sm:p-8">
@@ -183,28 +210,29 @@ export default function UbiPage() {
         </section>
 
         <section>
+          <AdSlot format="display" slot="TODO-auto-mid" />
           <h2 className="text-xl font-bold text-white">Frequently asked questions</h2>
           <div className="mt-4 space-y-4">
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">How much can telematics save?</h3>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">How much can telematics save?</summary>
               <p className="mt-1">Typically 10–30% for safe patterns, plus 5–10% just for enrolling. Aggressive patterns may earn little — and a few programs surcharge the riskiest drivers.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Is pay-per-mile worth it?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Is pay-per-mile worth it?</summary>
               <p className="mt-1">Usually yes under ~10,000 miles/year — savings of 20–40% are common. Above ~15,000 miles, traditional policies typically win. Do the per-mile math on your odometer.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">What data do UBI programs collect?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">What data do UBI programs collect?</summary>
               <p className="mt-1">Location, speed, braking, acceleration, cornering, phone handling, and time of day — retained for years and shareable under the privacy policy. Odometer-only programs collect far less.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Can UBI raise my rates?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Can UBI raise my rates?</summary>
               <p className="mt-1">With most behavior programs your discount simply shrinks; a minority surcharge risky patterns. Ask before enrolling, and prefer trial-then-decide offers if you are unsure.</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-              <h3 className="font-semibold text-white">Do I need special hardware for telematics?</h3>
+            </details>
+            <details className="rounded-xl border border-white/10 bg-white/[0.02] p-4 group">
+              <summary className="cursor-pointer font-semibold text-white">Do I need special hardware for telematics?</summary>
               <p className="mt-1">Most 2026 programs run on your smartphone — no plug-in device needed. A few still offer OBD-II dongles for cars without connected services; either way, setup takes minutes and removal restores the standard rate.</p>
-            </div>
+            </details>
           </div>
         </section>
 
@@ -233,6 +261,7 @@ export default function UbiPage() {
           </p>
         </section>
       </article>
+      <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
     </div>
   );
 }
