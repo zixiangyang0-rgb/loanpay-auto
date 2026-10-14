@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     description:
       "Plain-English car-buying education: negotiation, financing, EV costs, insurance, maintenance, and selling.",
   },
+  other: {
+    "google-adsense-account": "ca-pub-4906207495792820",
+  },
 };
 
 const navLinks = [
@@ -71,6 +74,13 @@ function Footer() {
       <p className="mt-4">
         &copy; {new Date().getFullYear()} auto.loanpaylogic.com. General education only, not
         financial advice.
+      </p>
+      <p className="mt-2 text-xs">
+        LoanPay Logic Network:{" "}
+        <a href="https://loanpaylogic.com" className="underline hover:text-white">Loan Calculators</a>{" "}
+        &middot; <a href="https://insurance.loanpaylogic.com" className="underline hover:text-white">Auto Insurance</a>{" "}
+        &middot; <a href="https://credit.loanpaylogic.com" className="underline hover:text-white">Credit Scores</a>{" "}
+        &middot; <a href="https://save.loanpaylogic.com" className="underline hover:text-white">Savings</a>
       </p>
       <p className="mt-2 text-xs">
         Contact:{" "}
