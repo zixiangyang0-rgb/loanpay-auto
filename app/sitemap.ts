@@ -18,6 +18,7 @@ const ROUTES: { url: string; priority: number; changeFrequency: "weekly" | "mont
   { url: "/auto-refinance-guide", priority: 0.8, changeFrequency: "monthly" },
   { url: "/upside-down-car-loan-guide", priority: 0.8, changeFrequency: "monthly" },
   { url: "/how-to-trade-in-car-guide", priority: 0.8, changeFrequency: "monthly" },
+  { url: "/how-much-negative-equity-can-you-rollover", priority: 0.8, changeFrequency: "monthly" },
   { url: "/lease-end-options-guide", priority: 0.8, changeFrequency: "monthly" },
   // Cluster C — EV
   { url: "/ev-tax-credit-2026-guide", priority: 0.9, changeFrequency: "monthly" },
@@ -25,6 +26,7 @@ const ROUTES: { url: string; priority: number; changeFrequency: "weekly" | "mont
   { url: "/hybrid-vs-electric-guide", priority: 0.8, changeFrequency: "monthly" },
   // Cluster D — insurance & ownership
   { url: "/gap-insurance-explained", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/gap-insurance-cost-calculator", priority: 0.9, changeFrequency: "monthly" },
   { url: "/car-insurance-new-drivers-guide", priority: 0.8, changeFrequency: "monthly" },
   { url: "/usage-based-insurance-guide", priority: 0.8, changeFrequency: "monthly" },
   { url: "/car-depreciation-guide", priority: 0.8, changeFrequency: "monthly" },
