@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
-import { ArticleJsonLd } from "../lib/schema";
+import { Byline, GuideSchema } from "../components/schema";
 
 export const metadata: Metadata = {
   title: "First-Time Car Buyer Guide: Budget to Paperwork | LoanPay Auto",
@@ -43,7 +43,6 @@ const FAQS: { question: string; answer: string }[] = [
 export default function FirstTimePage() {
   return (
     <div className="mx-auto w-full max-w-3xl px-6 pb-16 pt-8">
-      <ArticleJsonLd title="First-Time Car Buyer Guide: Budget to Paperwork | LoanPay Auto" description="Buying your first car? Budget rules, credit building, insurance shocks, dealer scripts, and paperwork — a complete start-to-finish walkthrough with numbers." slug="first-time-car-buyer-guide" faqs={FAQS} />
       <section className="glass-panel page-aurora rounded-3xl px-8 py-12 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200/80">
           Buy smart &middot; beginners
@@ -56,7 +55,7 @@ export default function FirstTimePage() {
           start-to-finish walkthrough covers budgeting, credit, insurance, negotiation, and
           paperwork, so the first deal is a good one.
         </p>
-        <p className="mt-4 text-xs text-slate-500">By LoanPay Auto Editorial Team · Updated: October 2026</p>
+        <Byline />
       </section>
       <AdSlot format="in-article" slot="TODO-auto-in-article" />
 
@@ -274,6 +273,7 @@ export default function FirstTimePage() {
         </section>
       </article>
       <AdSlot format="multiplex" slot="TODO-auto-multiplex" />
+      <GuideSchema title="First-Time Car Buyer Guide: Budget to Paperwork | LoanPay Auto" description="Buying your first car? Budget rules, credit building, insurance shocks, dealer scripts, and paperwork — a complete start-to-finish walkthrough with numbers." slug="first-time-car-buyer-guide" faqs={FAQS} />
     </div>
   );
 }

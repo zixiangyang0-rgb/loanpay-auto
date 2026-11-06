@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
 import ConsentBanner from "./lib/consent";
+import { OrgJsonLd } from "./components/schema";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -117,6 +118,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <ConsentBanner />
+        <OrgJsonLd />
         {/* Google Funding Choices (CMP): configure your message at https://fundingchoices.google.com
             and paste the Funding Choices tag here once approved. The ConsentBanner above stores
             the visitor choice and sets npa=1 (requestNonPersonalizedAds) on decline. */}
