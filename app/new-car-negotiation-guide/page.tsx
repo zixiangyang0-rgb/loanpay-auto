@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
+import OfficialSources from "../components/OfficialSources";
 import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
@@ -227,7 +228,12 @@ export default function NegotiationPage() {
           </div>
         </section>
 
-                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <OfficialSources
+          gov={{ label: "NHTSA — Vehicle Safety Ratings", href: "https://www.nhtsa.gov/ratings", desc: "official 5-star crash-test and rollover ratings by make and model." }}
+          authority={{ label: "Edmunds — Car Buying Advice", href: "https://www.edmunds.com/car-buying/", desc: "independent pricing, reviews, and negotiation benchmarks." }}
+        />
+
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import BuyVsLeaseEstimator from "./estimator";
 import AdSlot from "../components/AdSlot";
+import OfficialSources from "../components/OfficialSources";
 import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
@@ -235,7 +236,12 @@ export default function BuyVsLeasePage() {
           </div>
         </section>
 
-                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <OfficialSources
+          gov={{ label: "IRS — Credits and Deductions", href: "https://www.irs.gov/credits-deductions", desc: "federal tax rules that affect vehicle purchase, loan, and lease math." }}
+          authority={{ label: "Edmunds — Car Buying Advice", href: "https://www.edmunds.com/car-buying/", desc: "independent pricing, reviews, and negotiation benchmarks." }}
+        />
+
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>

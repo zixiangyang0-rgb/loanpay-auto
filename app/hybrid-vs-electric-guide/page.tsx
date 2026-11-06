@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AdSlot from "../components/AdSlot";
+import OfficialSources from "../components/OfficialSources";
 import { ArticleJsonLd } from "../lib/schema";
 
 export const metadata: Metadata = {
@@ -225,7 +226,12 @@ export default function HybridVsEvPage() {
           </div>
         </section>
 
-                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+        <OfficialSources
+          gov={{ label: "FuelEconomy.gov — Electric Vehicle Basics", href: "https://fueleconomy.gov/feg/evtech.shtml", desc: "how EV range, charging, and efficiency ratings are measured." }}
+          authority={{ label: "Toyota — Official Model Research", href: "https://www.toyota.com/", desc: "manufacturer specs, warranty terms, and maintenance schedules." }}
+        />
+
+        <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
           <p className="text-sm font-semibold">Keep reading</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
               <li>
