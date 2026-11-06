@@ -229,19 +229,23 @@ export default function LemonLawPage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/salvage-title-guide" className="text-amber-200 underline underline-offset-2">
-              title brands
-            </Link>
-            {" "}and{" "}
-            <a href="https://insurance.loanpaylogic.com/auto-insurance-cost-calculator" className="text-amber-200 underline underline-offset-2">
-              our auto insurance cost calculator
-            </a>
-            .
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/used-car-buying-checklist">Used Car Buying Checklist</Link> — a 40-point inspection flow for buying a used car without surprises.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/extended-warranty-pros-cons">Extended Warranty Pros & Cons</Link> — service contracts decoded — when the warranty math works.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/salvage-title-guide">Salvage Title Guide</Link> — rebuilt-title risks, insurance hurdles, and how salvage cars price.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/buying-car-out-of-state-guide">Buying a Car Out of State Guide</Link> — taxes, tags, and transport when buying across state lines.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>

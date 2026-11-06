@@ -237,19 +237,23 @@ export default function UpsideDownPage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/how-to-trade-in-car-guide" className="text-amber-200 underline underline-offset-2">
-              trading in
-            </Link>
-            {" "}and{" "}
-            <Link href="/selling-car-private-vs-dealer" className="text-amber-200 underline underline-offset-2">
-              selling private vs. dealer
-            </Link>
-            .
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/how-much-negative-equity-can-you-rollover">Negative Equity Rollover Guide</Link> — lender caps on rolling negative equity and the true cost.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/auto-refinance-guide">Auto Refinance Guide</Link> — when refinancing actually saves money after fees and term resets.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/gap-insurance-explained">GAP Insurance Explained</Link> — what GAP covers, what it costs, and who actually needs it.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/how-to-trade-in-car-guide">How to Trade In Your Car Guide</Link> — how trade values are set, timing, and tax-credit savings.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>

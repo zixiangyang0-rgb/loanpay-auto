@@ -221,19 +221,23 @@ export default function CpoPage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/extended-warranty-pros-cons" className="text-amber-200 underline underline-offset-2">
-              extended warranty pros &amp; cons
-            </Link>
-            {" "}and{" "}
-            <Link href="/car-depreciation-guide" className="text-amber-200 underline underline-offset-2">
-              car depreciation
-            </Link>
-            .
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/used-car-buying-checklist">Used Car Buying Checklist</Link> — a 40-point inspection flow for buying a used car without surprises.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/extended-warranty-pros-cons">Extended Warranty Pros & Cons</Link> — service contracts decoded — when the warranty math works.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/car-depreciation-guide">Car Depreciation Guide</Link> — depreciation curves by segment and how to slow value loss.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/new-car-negotiation-guide">New Car Negotiation Guide</Link> — out-the-door tactics that cut the price before you talk monthly payments.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>

@@ -259,27 +259,23 @@ export default function NegativeEquityRolloverPage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/upside-down-car-loan-guide" className="text-amber-200 underline underline-offset-2">
-              upside-down car loan guide
-            </Link>
-            {", "}
-            <Link href="/how-to-trade-in-car-guide" className="text-amber-200 underline underline-offset-2">
-              trading in
-            </Link>
-            {", "}
-            <Link href="/gap-insurance-explained" className="text-amber-200 underline underline-offset-2">
-              gap insurance explained
-            </Link>
-            {" "}and{" "}
-            <Link href="/auto-refinance-guide" className="text-amber-200 underline underline-offset-2">
-              auto refinance guide
-            </Link>
-            .
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/upside-down-car-loan-guide">Upside-Down Car Loan Guide</Link> — causes, fixes, and why rolling negative equity compounds the problem.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/how-to-trade-in-car-guide">How to Trade In Your Car Guide</Link> — how trade values are set, timing, and tax-credit savings.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/gap-insurance-explained">GAP Insurance Explained</Link> — what GAP covers, what it costs, and who actually needs it.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/auto-refinance-guide">Auto Refinance Guide</Link> — when refinancing actually saves money after fees and term resets.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>

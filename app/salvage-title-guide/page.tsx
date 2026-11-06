@@ -225,19 +225,23 @@ export default function SalvagePage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/buying-car-out-of-state-guide" className="text-amber-200 underline underline-offset-2">
-              buying out of state
-            </Link>
-            {" "}and{" "}
-            <Link href="/lemon-law-guide" className="text-amber-200 underline underline-offset-2">
-              lemon law basics
-            </Link>
-            .
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/used-car-buying-checklist">Used Car Buying Checklist</Link> — a 40-point inspection flow for buying a used car without surprises.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/certified-pre-owned-worth-it">Certified Pre-Owned Guide</Link> — whether the CPO premium pays for itself in warranty value.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/car-insurance-new-drivers-guide">Car Insurance for New Drivers Guide</Link> — why new-driver premiums run high and six ways to lower them.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/lemon-law-guide">Lemon Law Guide</Link> — state rules, repair-attempt thresholds, and buyback remedies.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>

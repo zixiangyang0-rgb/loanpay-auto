@@ -228,19 +228,23 @@ export default function DealerVsBankPage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/new-car-negotiation-guide" className="text-amber-200 underline underline-offset-2">
-              new car negotiation
-            </Link>
-            {" "}and{" "}
-            <Link href="/upside-down-car-loan-guide" className="text-amber-200 underline underline-offset-2">
-              upside-down loans
-            </Link>
-            .
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/auto-loan-preapproval-guide">Auto Loan Preapproval Guide</Link> — rates by credit tier, timing, and how preapproval strengthens offers.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/new-car-negotiation-guide">New Car Negotiation Guide</Link> — out-the-door tactics that cut the price before you talk monthly payments.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/auto-refinance-guide">Auto Refinance Guide</Link> — when refinancing actually saves money after fees and term resets.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/buy-vs-lease-guide">Buy vs. Lease Guide</Link> — whether buying or leasing costs less for your mileage and holding period.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>

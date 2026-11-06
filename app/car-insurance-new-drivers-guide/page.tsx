@@ -219,19 +219,23 @@ export default function NewDriversPage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/first-time-car-buyer-guide" className="text-amber-200 underline underline-offset-2">
-              first-time buyer guide
-            </Link>
-            {" "}and{" "}
-            <a href="https://insurance.loanpaylogic.com/auto-insurance-cost-calculator" className="text-amber-200 underline underline-offset-2">
-              our auto insurance cost calculator
-            </a>
-            .
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/usage-based-insurance-guide">Usage-Based Insurance Guide</Link> — telematics and pay-per-mile pricing, plus the privacy trade-offs.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/gap-insurance-explained">GAP Insurance Explained</Link> — what GAP covers, what it costs, and who actually needs it.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/first-time-car-buyer-guide">First-Time Car Buyer Guide</Link> — budgeting, paperwork, and the first-timer mistakes to avoid.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/total-cost-of-ownership-guide">Total Cost of Ownership Guide</Link> — the full 5-year cost beyond the sticker price.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>

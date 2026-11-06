@@ -232,23 +232,23 @@ export default function UsedCarChecklistPage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/car-maintenance-costs-guide" className="text-amber-200 underline underline-offset-2">
-              car maintenance costs
-            </Link>
-            ,{" "}
-            <Link href="/lemon-law-guide" className="text-amber-200 underline underline-offset-2">
-              lemon law basics
-            </Link>
-            , and{" "}
-            <Link href="/selling-car-private-vs-dealer" className="text-amber-200 underline underline-offset-2">
-              selling private vs. dealer
-            </Link>
-            .
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/certified-pre-owned-worth-it">Certified Pre-Owned Guide</Link> — whether the CPO premium pays for itself in warranty value.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/salvage-title-guide">Salvage Title Guide</Link> — rebuilt-title risks, insurance hurdles, and how salvage cars price.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/car-depreciation-guide">Car Depreciation Guide</Link> — depreciation curves by segment and how to slow value loss.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/first-time-car-buyer-guide">First-Time Car Buyer Guide</Link> — budgeting, paperwork, and the first-timer mistakes to avoid.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>

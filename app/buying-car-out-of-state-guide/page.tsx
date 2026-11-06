@@ -226,19 +226,23 @@ export default function OutOfStatePage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/salvage-title-guide" className="text-amber-200 underline underline-offset-2">
-              salvage titles
-            </Link>
-            {" "}and{" "}
-            <Link href="/certified-pre-owned-worth-it" className="text-amber-200 underline underline-offset-2">
-              CPO value
-            </Link>
-            .
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/used-car-buying-checklist">Used Car Buying Checklist</Link> — a 40-point inspection flow for buying a used car without surprises.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/salvage-title-guide">Salvage Title Guide</Link> — rebuilt-title risks, insurance hurdles, and how salvage cars price.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/new-car-negotiation-guide">New Car Negotiation Guide</Link> — out-the-door tactics that cut the price before you talk monthly payments.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/total-cost-of-ownership-guide">Total Cost of Ownership Guide</Link> — the full 5-year cost beyond the sticker price.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>

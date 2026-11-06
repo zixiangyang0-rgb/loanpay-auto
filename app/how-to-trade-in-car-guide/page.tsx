@@ -225,19 +225,23 @@ export default function TradeInPage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/selling-car-private-vs-dealer" className="text-amber-200 underline underline-offset-2">
-              selling private vs. dealer
-            </Link>
-            {" "}and{" "}
-            <Link href="/upside-down-car-loan-guide" className="text-amber-200 underline underline-offset-2">
-              upside-down loans
-            </Link>
-            .
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/upside-down-car-loan-guide">Upside-Down Car Loan Guide</Link> — causes, fixes, and why rolling negative equity compounds the problem.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/selling-car-private-vs-dealer">Selling Car Private vs. Dealer Guide</Link> — net proceeds compared after time, hassle, and tax effects.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/how-much-negative-equity-can-you-rollover">Negative Equity Rollover Guide</Link> — lender caps on rolling negative equity and the true cost.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/dealer-financing-vs-bank">Dealer Financing vs. Bank Guide</Link> — how dealer rate markup works and when a bank quote wins.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>

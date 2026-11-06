@@ -236,19 +236,23 @@ export default function UbiPage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/total-cost-of-ownership-guide" className="text-amber-200 underline underline-offset-2">
-              total cost of ownership
-            </Link>
-            {" "}and{" "}
-            <Link href="/car-maintenance-costs-guide" className="text-amber-200 underline underline-offset-2">
-              maintenance costs
-            </Link>
-            .
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/car-insurance-new-drivers-guide">Car Insurance for New Drivers Guide</Link> — why new-driver premiums run high and six ways to lower them.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/gap-insurance-explained">GAP Insurance Explained</Link> — what GAP covers, what it costs, and who actually needs it.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/total-cost-of-ownership-guide">Total Cost of Ownership Guide</Link> — the full 5-year cost beyond the sticker price.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/car-maintenance-costs-guide">Car Maintenance Costs Guide</Link> — year-by-year maintenance budgets by vehicle age.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>

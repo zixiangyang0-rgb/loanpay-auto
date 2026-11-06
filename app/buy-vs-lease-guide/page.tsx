@@ -235,23 +235,23 @@ export default function BuyVsLeasePage() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-xs leading-relaxed">
-          <p>
-            Related reading:{" "}
-            <Link href="/total-cost-of-ownership-guide" className="text-amber-200 underline underline-offset-2">
-              total cost of ownership
-            </Link>
-            ,{" "}
-            <Link href="/lease-end-options-guide" className="text-amber-200 underline underline-offset-2">
-              lease-end options
-            </Link>
-            , and{" "}
-            <a href="https://insurance.loanpaylogic.com/auto-insurance-cost-calculator" className="text-amber-200 underline underline-offset-2">
-              our auto insurance cost calculator
-            </a>{" "}
-            to price coverage for either path.
-          </p>
-        </section>
+                <nav aria-label="Related guides" className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold">Keep reading</p>
+          <ul className="mt-3 flex flex-col gap-2 text-sm leading-relaxed opacity-90">
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/lease-end-options-guide">Lease-End Options Guide</Link> — return, buy out, extend, or trade — with the equity math for each.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/total-cost-of-ownership-guide">Total Cost of Ownership Guide</Link> — the full 5-year cost beyond the sticker price.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/dealer-financing-vs-bank">Dealer Financing vs. Bank Guide</Link> — how dealer rate markup works and when a bank quote wins.
+              </li>
+              <li>
+                <Link className="text-amber-200 underline underline-offset-2" href="/auto-loan-preapproval-guide">Auto Loan Preapproval Guide</Link> — rates by credit tier, timing, and how preapproval strengthens offers.
+              </li>
+          </ul>
+        </nav>
 
         <section className="rounded-xl border border-amber-200/20 bg-amber-200/5 p-5 text-xs leading-relaxed text-amber-100/90">
           <p>
